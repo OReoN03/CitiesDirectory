@@ -7,7 +7,7 @@ public class Main {
         String path = "src/main/resources/Задача ВС Java Сбер.csv";
         CitiesDirectory.loadCitiesFromFile(path);
 
-        List<City> cities = CitiesDirectory.getCities();
+        /*List<City> cities = CitiesDirectory.getCities();
         for (City city : cities) {
             System.out.println(city);
         }
@@ -22,6 +22,9 @@ public class Main {
         cities = CitiesDirectory.sortCitiesByDistrictAndName();
         for (City city : cities) {
             System.out.println(city);
-        }
+        }*/
+        int index = CitiesDirectory.findMaxPopulationCityIndex();
+        long population = CitiesDirectory.getCities().get(index).getPopulation();
+        System.out.println("[" + index + "] = " + population);
     }
 }

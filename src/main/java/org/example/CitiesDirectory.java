@@ -47,4 +47,14 @@ public class CitiesDirectory {
                 .sorted(Comparator.comparing(City::getDistrict))
                 .toList();
     }
+
+    public static int findMaxPopulationCityIndex() {
+        int maxPopulationIndex = 0;
+        for (int i = 0; i < cities.size(); i++) {
+            if (cities.get(i).getPopulation() > cities.get(maxPopulationIndex).getPopulation()) {
+                maxPopulationIndex = i;
+            }
+        }
+        return maxPopulationIndex;
+    }
 }
