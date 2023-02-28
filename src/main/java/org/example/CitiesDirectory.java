@@ -2,10 +2,7 @@ package org.example;
 
 import java.io.IOException;
 import java.nio.file.Path;
-import java.util.ArrayList;
-import java.util.Comparator;
-import java.util.List;
-import java.util.Scanner;
+import java.util.*;
 
 public class CitiesDirectory {
     private static List<City> cities = new ArrayList<>();
@@ -56,5 +53,21 @@ public class CitiesDirectory {
             }
         }
         return maxPopulationIndex;
+    }
+
+    public static Map<String, Integer> getRegionsAndCitiesCount() {
+        Map<String, Integer> regionsAndCitiesCount = new HashMap<>();
+
+        for (City city : cities) {
+            String region = city.getRegion();
+
+            if (regionsAndCitiesCount.containsKey(region)) {
+                int citiesCount = regionsAndCitiesCount.get(city.getRegion()) + 1;
+                regionsAndCitiesCount.put(region, citiesCount);
+            }
+            else regionsAndCitiesCount.put(city.getRegion(), 1);
+        }
+
+        return regionsAndCitiesCount;
     }
 }
